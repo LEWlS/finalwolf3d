@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/19 14:45:17 by trabut            #+#    #+#             */
-/*   Updated: 2019/10/02 13:35:01 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/28 14:58:22 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ int				frame(t_var *info)
 		SDL_RenderPresent(info->renderer);
 		SDL_DestroyTexture(info->texture);
 	}
+	destroy_tab(&(info->map));
 	return (1);
 }

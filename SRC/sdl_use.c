@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/19 15:01:16 by trabut            #+#    #+#             */
-/*   Updated: 2019/06/21 16:03:12 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/28 15:04:43 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,15 @@ int		init_win2(t_var *info)
 		return (0);
 	}
 	return (1);
+}
+
+void	free_surfaces(t_var *info)
+{
+	SDL_FreeSurface(info->image);
+	SDL_FreeSurface(info->text_tab[0]);
+	SDL_FreeSurface(info->text_tab[1]);
+	SDL_FreeSurface(info->text_tab[2]);
+	SDL_FreeSurface(info->text_tab[3]);
+	SDL_FreeSurface(info->text_tab[4]);
+	SDL_FreeSurface(info->text_tab[5]);
 }

@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:47:46 by lbonnete          #+#    #+#             */
-/*   Updated: 2020/01/22 13:37:22 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/28 15:05:54 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,40 +56,39 @@ static	void	set_pos(t_var *info)
 	info->ori_y = info->posy;
 }
 
+__attribute__((constructor))static void initialize_navigationBarImages() {
+  
+}
+
+__attribute__((destructor))static void destroy_navigationBarImages() {
+  while(1)
+  	;
+}
+
 int				main(int ac, char **av)
 {
 	t_var info;
-	ft_putendl("0");
 	if (ac != 2 || ft_reader(av[1], &info) == 0 || checker(&info) == 0)
 	{
 		ft_putendl("Map error!");
 		return (0);
 	}
-	ft_putendl("2");
 	if (!(init_win1(&info)))
 		return (0);
-	ft_putendl("2");
 	if (!(init_win2(&info)))
 		return (0);
-	ft_putendl("3");
 	set_pos(&info);
-	ft_putendl("a");
 	ft_init_pour_linstant(&info);
-	ft_putendl("b");
 	if (!get_texture(&info))
 	{
 		SDL_DestroyWindow(info.window);
 		SDL_Quit();
 		return (0);
 	}
-	ft_putendl("c");
 	if (!(frame(&info)))
 		return (0);
-	ft_putendl("d");
-	SDL_FreeSurface(info.image);
-	ft_putendl("e");
+	free_surfaces(&info);
 	SDL_DestroyWindow(info.window);
-	ft_putendl("f");
 	SDL_Quit();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 14:27:51 by lbonnete          #+#    #+#             */
-/*   Updated: 2020/01/22 15:30:07 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/28 15:04:38 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,5 +181,6 @@ void					reset_and_head(t_var *info, SDL_Event event);
 int						escape(t_var *info);
 int 					hitboxx(t_var *info, double dirx);
 int 					hitboxy(t_var *info, double diry);
+void					free_surfaces(t_var *info);
 
 #endif
