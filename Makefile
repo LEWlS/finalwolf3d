@@ -6,11 +6,11 @@
 #    By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/18 15:34:09 by trabut            #+#    #+#              #
-#    Updated: 2020/01/29 14:13:51 by lbonnete         ###   ########.fr        #
+#    Updated: 2020/01/29 14:58:37 by lbonnete         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = wolf3D
+NAME = wolf3d
 
 FLAGS       = -Wall -Wextra -Werror -O3
 
