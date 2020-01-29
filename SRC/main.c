@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:47:46 by lbonnete          #+#    #+#             */
-/*   Updated: 2020/01/29 13:21:05 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/29 14:08:12 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,6 @@ static	void	set_pos(t_var *info)
 {
 	info->ori_x = info->posx;
 	info->ori_y = info->posy;
-}
-
-__attribute__((constructor))static void initialize_navigationBarImages() {
-  
-}
-
-__attribute__((destructor))static void destroy_navigationBarImages() {
-  while(1)
-  	;
 }
 
 int				main(int ac, char **av)

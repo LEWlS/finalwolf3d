@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/19 15:01:16 by trabut            #+#    #+#             */
-/*   Updated: 2020/01/28 15:04:43 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/29 14:02:02 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ int		init_win2(t_var *info)
 
 void	free_surfaces(t_var *info)
 {
+	if (info->texture)
+		SDL_DestroyTexture(info->texture);
+	if (info->renderer)
+		SDL_DestroyRenderer(info->renderer);
 	SDL_FreeSurface(info->image);
 	SDL_FreeSurface(info->text_tab[0]);
 	SDL_FreeSurface(info->text_tab[1]);
