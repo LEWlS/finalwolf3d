@@ -6,13 +6,13 @@
 #    By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/18 15:34:09 by trabut            #+#    #+#              #
-#    Updated: 2020/01/28 16:19:36 by lbonnete         ###   ########.fr        #
+#    Updated: 2020/01/29 14:13:51 by lbonnete         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = wolf3D
 
-FLAGS       = -Wall -Wextra -Werror 
+FLAGS       = -Wall -Wextra -Werror -O3
 
 SDL			= -lpthread -F ./frameworks/ -framework SDL2 -framework SDL2_image 
 SDL_HEADER	= -I ./frameworks/SDL2.framework/Headers -I ./frameworks/SDL2_image.framework/Headers
