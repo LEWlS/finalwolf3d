@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 14:27:51 by lbonnete          #+#    #+#             */
-/*   Updated: 2020/01/28 15:04:38 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/29 13:19:11 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "../libft/libft.h"
 # define WINDOW_W			1280
 # define WINDOW_H			720
-# define W_H 				WINDOW_W / 1.5
+# define W_H 				853
 # define NB_THREADS_MAX		12
 # define BLACK				0x000000
 # define SKY_BLUE			0x00BFFF
@@ -179,8 +179,8 @@ void					get_move2(SDL_Event event, t_input *input);
 int						move(t_var *info, t_input input);
 void					reset_and_head(t_var *info, SDL_Event event);
 int						escape(t_var *info);
-int 					hitboxx(t_var *info, double dirx);
-int 					hitboxy(t_var *info, double diry);
+int						hitboxx(t_var *info, double dirx);
+int						hitboxy(t_var *info, double diry);
 void					free_surfaces(t_var *info);
 
 #endif

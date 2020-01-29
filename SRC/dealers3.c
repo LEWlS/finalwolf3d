@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 17:04:28 by lewis             #+#    #+#             */
-/*   Updated: 2020/01/22 15:43:05 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/29 13:04:17 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,20 +92,20 @@ int		move(t_var *info, t_input input)
 {
 	if (input.up)
 	{
-			if (info->map[(int)(info->posx + info->dirx 
-			* info->movespeed)][(int)(info->posy)] != '#' && hitboxx(info, info->dirx))
-				info->posx += info->dirx * info->movespeed;
-			if (info->map[(int)(info->posx)][(int)(info->posy + info->diry 
-			* info->movespeed)] != '#' && hitboxy(info, info->diry))
-				info->posy += info->diry * info->movespeed;
-			if (info->map[(int)(info->posx + info->dirx
-			* info->movespeed)][(int)(info->posy)] == 'X')
+		if (info->map[(int)(info->posx + info->dirx * info->movespeed)]
+		[(int)(info->posy)] != '#' && hitboxx(info, info->dirx))
+			info->posx += info->dirx * info->movespeed;
+		if (info->map[(int)(info->posx)][(int)(info->posy + info->diry
+		* info->movespeed)] != '#' && hitboxy(info, info->diry))
+			info->posy += info->diry * info->movespeed;
+		if (info->map[(int)(info->posx + info->dirx
+		* info->movespeed)][(int)(info->posy)] == 'X')
 			return (escape(info));
 	}
 	if (input.down)
 	{
-		if (info->map[(int)(info->posx - info->dirx
-		* info->movespeed)][(int)(info->posy)] != '#' && hitboxx(info, (-1) * info->dirx))
+		if (info->map[(int)(info->posx - info->dirx * info->movespeed)]
+		[(int)(info->posy)] != '#' && hitboxx(info, (-1) * info->dirx))
 			info->posx -= info->dirx * info->movespeed;
 		if (info->map[(int)(info->posx)][(int)(info->posy - info->diry
 		* info->movespeed)] != '#' && hitboxy(info, (-1) * info->diry))

@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/19 14:45:17 by trabut            #+#    #+#             */
-/*   Updated: 2020/01/28 14:58:22 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/29 12:57:35 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ static	void	quitter(t_var *info)
 	SDL_Quit();
 }
 
+static	void	frame_help(t_var *info)
+{
+	SDL_RenderPresent(info->renderer);
+	SDL_DestroyTexture(info->texture);
+}
+
 int				frame(t_var *info)
 {
 	while (dealer(info))
@@ -73,8 +79,7 @@ int				frame(t_var *info)
 			quitter(info);
 			return (0);
 		}
-		SDL_RenderPresent(info->renderer);
-		SDL_DestroyTexture(info->texture);
+		frame_help(info);
 	}
 	destroy_tab(&(info->map));
 	return (1);

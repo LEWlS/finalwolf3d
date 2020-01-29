@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:47:46 by lbonnete          #+#    #+#             */
-/*   Updated: 2020/01/28 15:05:54 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/29 13:21:05 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ __attribute__((destructor))static void destroy_navigationBarImages() {
 int				main(int ac, char **av)
 {
 	t_var info;
+
 	if (ac != 2 || ft_reader(av[1], &info) == 0 || checker(&info) == 0)
 	{
 		ft_putendl("Map error!");

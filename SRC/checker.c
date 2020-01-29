@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 14:48:43 by lbonnete          #+#    #+#             */
-/*   Updated: 2020/01/22 13:49:37 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/29 12:58:48 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		spawn_and_top_checker(t_var *info)
 int		verti_check(char *line)
 {
 	int i;
-	
+
 	if (line[0] != '#')
 		return (1);
 	i = 0;

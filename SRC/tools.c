@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 16:39:35 by trabut            #+#    #+#             */
-/*   Updated: 2020/01/28 14:48:14 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/29 13:07:11 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,24 @@ char	**realloc_map(char **map, int len)
 	return (ret);
 }
 
-int 	hitboxx(t_var *info, double dirx)
+int		hitboxx(t_var *info, double dirx)
 {
-	if (dirx > 0 && (info->map[(int)(info->posx + 0.17)][(int)(info->posy)] == '#'))
+	if (dirx > 0 && (info->map[(int)(info->posx + 0.17)]
+	[(int)(info->posy)] == '#'))
 		return (0);
-	if (dirx < 0 && (info->map[(int)(info->posx - 0.17)][(int)(info->posy)] == '#'))
+	if (dirx < 0 && (info->map[(int)(info->posx - 0.17)]
+	[(int)(info->posy)] == '#'))
 		return (0);
 	return (1);
 }
 
-int 	hitboxy(t_var *info, double diry)
+int		hitboxy(t_var *info, double diry)
 {
-	if (diry > 0 && (info->map[(int)(info->posx)][(int)(info->posy + 0.17)] == '#'))
+	if (diry > 0 && (info->map[(int)(info->posx)]
+	[(int)(info->posy + 0.17)] == '#'))
 		return (0);
-	if (diry < 0 && (info->map[(int)(info->posx)][(int)(info->posy - 0.17)] == '#'))
+	if (diry < 0 && (info->map[(int)(info->posx)]
+	[(int)(info->posy - 0.17)] == '#'))
 		return (0);
 	return (1);
 }

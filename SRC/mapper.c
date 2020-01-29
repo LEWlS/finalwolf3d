@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 17:37:57 by lbonnete          #+#    #+#             */
-/*   Updated: 2020/01/28 14:49:17 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/01/29 13:05:38 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int			get_char_map(int fd, t_var *info)
 int			ft_reader(char *name, t_var *info)
 {
 	int fd;
+
 	if (-1 == (fd = open(name, O_RDONLY)))
 	{
 		close(fd);
