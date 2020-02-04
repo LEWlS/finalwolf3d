@@ -6,7 +6,7 @@
 #    By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/18 15:34:09 by trabut            #+#    #+#              #
-#    Updated: 2020/01/29 14:58:37 by lbonnete         ###   ########.fr        #
+#    Updated: 2020/02/04 15:35:29 by lbonnete         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC =	main.c\
 		dealers.c\
 		dealers2.c\
 		dealers3.c\
+		dealers4.c\
 		testaffichage3d.c\
 		tools.c\
 		algo.c\

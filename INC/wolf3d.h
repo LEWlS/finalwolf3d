@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 14:27:51 by lbonnete          #+#    #+#             */
-/*   Updated: 2020/01/29 13:58:59 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/02/04 15:56:51 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,9 @@ struct					s_input
 	int					right;
 	double				straffer_x;
 	double				straffer_y;
+	double				diag_x;
+	double				diag_y;
+	int					diag;
 };
 
 char					**realloc_map(char **map, int len);
@@ -182,5 +185,7 @@ int						escape(t_var *info);
 int						hitboxx(t_var *info, double dirx);
 int						hitboxy(t_var *info, double diry);
 void					free_surfaces(t_var *info);
+void					move_diag(t_input *input);
+void					diag(t_var *info, t_input input);
 
 #endif

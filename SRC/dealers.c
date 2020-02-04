@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 15:51:41 by lbonnete          #+#    #+#             */
-/*   Updated: 2020/01/29 12:59:32 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/02/04 16:50:26 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		escape(t_var *info)
 
 void	straff_and_rot2(t_var *info, t_input input)
 {
-	if (input.straf_left)
+	if (input.straf_left && input.diag == 0)
 	{
 		input.straffer_x = -info->diry;
 		input.straffer_y = info->dirx;
@@ -50,7 +50,7 @@ void	straff_and_rot(t_var *info, t_input input)
 		rot_right(info);
 	else if (input.left)
 		rot_left(info);
-	if (input.straf_right)
+	if (input.straf_right && input.diag == 0)
 	{
 		input.straffer_x = info->diry;
 		input.straffer_y = -info->dirx;
@@ -90,10 +90,13 @@ int		dealer(t_var *info)
 		mouse_and_texture(info, event);
 		get_move1(event, &input);
 		get_move2(event, &input);
+		move_diag(&input);
 		sprint(info, event);
 	}
 	reset_and_head(info, event);
 	get_speed(info);
+	diag(info, input);
 	straff_and_rot(info, input);
-	return (move(info, input));
+	move(info, input);
+	return (1);
 }

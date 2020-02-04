@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 17:04:28 by lewis             #+#    #+#             */
-/*   Updated: 2020/01/29 13:04:17 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/02/04 15:55:25 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	get_move2(SDL_Event event, t_input *input)
 
 int		move(t_var *info, t_input input)
 {
-	if (input.up)
+	if (input.up && input.diag == 0)
 	{
 		if (info->map[(int)(info->posx + info->dirx * info->movespeed)]
 		[(int)(info->posy)] != '#' && hitboxx(info, info->dirx))
@@ -102,7 +102,7 @@ int		move(t_var *info, t_input input)
 		* info->movespeed)][(int)(info->posy)] == 'X')
 			return (escape(info));
 	}
-	if (input.down)
+	if (input.down && input.diag == 0)
 	{
 		if (info->map[(int)(info->posx - info->dirx * info->movespeed)]
 		[(int)(info->posy)] != '#' && hitboxx(info, (-1) * info->dirx))

@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 16:39:35 by trabut            #+#    #+#             */
-/*   Updated: 2020/01/29 14:37:52 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/02/04 17:05:22 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,26 @@ int		hitboxx(t_var *info, double dirx)
 {
 	if (dirx > 0 && (info->map[(int)(info->posx + 0.17)]
 	[(int)(info->posy)] == '#'))
+	{
+		if (info->map[(int)(info->posx + 0.168)]
+		[(int)(info->posy)] == '#')
+		{
+			info->posx -= 0.002;
+			ft_putendl("no");
+		}
 		return (0);
+	}
 	if (dirx < 0 && (info->map[(int)(info->posx - 0.17)]
 	[(int)(info->posy)] == '#'))
+	{
+		if (info->map[(int)(info->posx - 0.168)]
+		[(int)(info->posy)] == '#')
+		{
+			info->posx += 0.002;
+			ft_putendl("no");
+		}
 		return (0);
+	}
 	return (1);
 }
 
@@ -72,9 +88,25 @@ int		hitboxy(t_var *info, double diry)
 {
 	if (diry > 0 && (info->map[(int)(info->posx)]
 	[(int)(info->posy + 0.17)] == '#'))
+	{
+		if (info->map[(int)(info->posx)]
+		[(int)(info->posy + 0.168)] == '#')
+		{
+			ft_putendl("no");
+			info->posy -= 0.002; 
+		}
 		return (0);
+	}
 	if (diry < 0 && (info->map[(int)(info->posx)]
 	[(int)(info->posy - 0.17)] == '#'))
+	{
+		if (info->map[(int)(info->posx)]
+		[(int)(info->posy - 0.168)] == '#')
+		{
+			ft_putendl("no");
+			info->posy += 0.002; 
+		}
 		return (0);
+	}
 	return (1);
 }
