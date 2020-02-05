@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 16:39:35 by trabut            #+#    #+#             */
-/*   Updated: 2020/02/04 17:05:22 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/02/05 17:02:20 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,56 +57,168 @@ char	**realloc_map(char **map, int len)
 	return (ret);
 }
 
-int		hitboxx(t_var *info, double dirx)
+// int		hitboxx(t_var *info, double dirx)
+// {
+// 	double x;
+	
+// 	if (dirx > 0 && (info->map[(int)(info->posx + 0.17)]
+// 	[(int)(info->posy)] == '#'))
+// 	{
+// 		if (info->map[(int)(info->posx + 0.168)]
+// 		[(int)(info->posy)] == '#')
+// 		{
+// 			info->posx -= 0.002;
+// 			ft_putendl("no");
+// 		}
+// 		return (0);
+// 	}
+// 	if (dirx < 0 && (info->map[(int)(info->posx - 0.17)]
+// 	[(int)(info->posy)] == '#'))
+// 	{
+// 		if (info->map[(int)(info->posx - 0.168)]
+// 		[(int)(info->posy)] == '#')
+// 		{
+// 			info->posx += 0.002;
+// 			ft_putendl("no");
+// 		}
+// 		return (0);
+// 	}
+// 	x = 0;
+// 	while (x < 0.17)
+// 	{
+// 		if (dirx > 0 && (info->map[(int)(info->posx + dirx * info->movespeed)][(int)(info->posy + x)] == '#'))
+// 		{
+// 			return (0);
+// 		}
+// 		if (dirx > 0 && (info->map[(int)(info->posx + dirx * info->movespeed)][(int)(info->posy - x)] == '#'))
+// 		{
+// 			return (0);
+// 		}
+// 		if (dirx < 0 && (info->map[(int)(info->posx + dirx * info->movespeed)][(int)(info->posy + x)] == '#'))
+// 		{
+// 			return (0);
+// 		}
+// 		if (dirx < 0 && (info->map[(int)(info->posx + dirx * info->movespeed)][(int)(info->posy - x)] == '#'))
+// 		{
+// 			return (0);
+// 		}
+// 		x = x + 0.01;
+// 	}
+// 	return (1);
+// }
+
+// int		hitboxy(t_var *info, double diry)
+// {
+// 	double x;
+	
+// 	if (diry > 0 && (info->map[(int)(info->posx)]
+// 	[(int)(info->posy + 0.17)] == '#'))
+// 	{
+// 		if (info->map[(int)(info->posx)]
+// 		[(int)(info->posy + 0.168)] == '#')
+// 		{
+// 			ft_putendl("no");
+// 			info->posy -= 0.002; 
+// 		}
+// 		return (0);
+// 	}
+// 	if (diry < 0 && (info->map[(int)(info->posx)]
+// 	[(int)(info->posy - 0.17)] == '#'))
+// 	{
+// 		if (info->map[(int)(info->posx)]
+// 		[(int)(info->posy - 0.168)] == '#')
+// 		{
+// 			ft_putendl("no");
+// 			info->posy += 0.02; 
+// 		}
+// 		return (0);
+// 	}
+// 	x = 0;
+// 	while ( x < 0.17)
+// 	{
+// 		if (diry > 0 && (info->map[(int)(info->posx + x)][(int)(info->posy + diry * info->movespeed)] == '#'))
+// 		{
+// 			return (0);
+// 		}
+// 		if (diry > 0 && (info->map[(int)(info->posx - x)][(int)(info->posy + diry * info->movespeed)] == '#'))
+// 		{
+// 			return (0);
+// 		}
+// 		if (diry < 0 && (info->map[(int)(info->posx + x)][(int)(info->posy + diry * info->movespeed)] == '#'))
+// 		{
+// 			return (0);
+// 		}
+// 		if (diry < 0 && (info->map[(int)(info->posx - x)][(int)(info->posy + diry * info->movespeed)] == '#'))
+// 		{
+// 			return (0);
+// 		}
+// 		x = x + 0.01;
+// 	}
+// 	return (1);
+// }
+
+// static int		sign_compare(double a, double b)
+// {
+// 	if (a >= 0 && b >= 0)
+// 		return (1);
+// 	if (a < 0 && b < 0)
+// 		return (1);
+// 	return (0);
+
+// }
+
+int		hitboxx(t_var *info, double dirx, double diry)
 {
-	if (dirx > 0 && (info->map[(int)(info->posx + 0.17)]
-	[(int)(info->posy)] == '#'))
+	double x;
+	double y;
+
+	x = -0.2;
+	y = -0.2;
+	(void)diry;
+	while (x < 0.2)
 	{
-		if (info->map[(int)(info->posx + 0.168)]
-		[(int)(info->posy)] == '#')
+		y = -0.2;
+		while (y < 0.2)
 		{
-			info->posx -= 0.002;
-			ft_putendl("no");
+			if (x * x + y * y  <= 0.1 * 0.1 && info->map[(int)(info->posx + x)][(int)(info->posy)] == '#')
+			{
+				if(dirx >= 0 && x >= 0)
+					return (0);
+				if(dirx <= 0 && x <= 0)
+					return (0);
+			}
+			y += 0.01;
 		}
-		return (0);
+		x += 0.01;
 	}
-	if (dirx < 0 && (info->map[(int)(info->posx - 0.17)]
-	[(int)(info->posy)] == '#'))
-	{
-		if (info->map[(int)(info->posx - 0.168)]
-		[(int)(info->posy)] == '#')
-		{
-			info->posx += 0.002;
-			ft_putendl("no");
-		}
-		return (0);
-	}
-	return (1);
+	return(1);
 }
 
-int		hitboxy(t_var *info, double diry)
+int		hitboxy(t_var *info, double dirx, double diry)
 {
-	if (diry > 0 && (info->map[(int)(info->posx)]
-	[(int)(info->posy + 0.17)] == '#'))
+	double x;
+	double y;
+
+	x = -0.2;
+	y = -0.2;
+	(void)dirx;
+	printf("dirx : %f | diry : %f\n", info->dirx, info->diry);
+	while (x < 0.2)
 	{
-		if (info->map[(int)(info->posx)]
-		[(int)(info->posy + 0.168)] == '#')
+		y = -0.2;
+		while (y < 0.2)
 		{
-			ft_putendl("no");
-			info->posy -= 0.002; 
+			if (x * x + y * y  <= 0.1 * 0.1 && info->map[(int)(info->posx)][(int)(info->posy + y)] == '#')
+			{
+				printf("x : %f | y : %f\n", x, y);
+				if(diry >= 0 && y >= 0)
+					return (0);
+				if(diry <= 0 && y <= 0)
+					return (0);
+			}
+			y += 0.01;
 		}
-		return (0);
+		x += 0.01;
 	}
-	if (diry < 0 && (info->map[(int)(info->posx)]
-	[(int)(info->posy - 0.17)] == '#'))
-	{
-		if (info->map[(int)(info->posx)]
-		[(int)(info->posy - 0.168)] == '#')
-		{
-			ft_putendl("no");
-			info->posy += 0.002; 
-		}
-		return (0);
-	}
-	return (1);
+	return(1);
 }

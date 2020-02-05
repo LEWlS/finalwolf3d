@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 17:04:28 by lewis             #+#    #+#             */
-/*   Updated: 2020/02/04 15:55:25 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/02/05 16:10:14 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,26 +93,20 @@ int		move(t_var *info, t_input input)
 	if (input.up && input.diag == 0)
 	{
 		if (info->map[(int)(info->posx + info->dirx * info->movespeed)]
-		[(int)(info->posy)] != '#' && hitboxx(info, info->dirx))
+		[(int)(info->posy)] != '#' && hitboxx(info, info->dirx, info->diry))
 			info->posx += info->dirx * info->movespeed;
 		if (info->map[(int)(info->posx)][(int)(info->posy + info->diry
-		* info->movespeed)] != '#' && hitboxy(info, info->diry))
+		* info->movespeed)] != '#' && hitboxy(info, info->dirx, info->diry))
 			info->posy += info->diry * info->movespeed;
-		if (info->map[(int)(info->posx + info->dirx
-		* info->movespeed)][(int)(info->posy)] == 'X')
-			return (escape(info));
 	}
 	if (input.down && input.diag == 0)
 	{
 		if (info->map[(int)(info->posx - info->dirx * info->movespeed)]
-		[(int)(info->posy)] != '#' && hitboxx(info, (-1) * info->dirx))
+		[(int)(info->posy)] != '#' && hitboxx(info, (-1) * info->dirx, (-1) * info->diry))
 			info->posx -= info->dirx * info->movespeed;
 		if (info->map[(int)(info->posx)][(int)(info->posy - info->diry
-		* info->movespeed)] != '#' && hitboxy(info, (-1) * info->diry))
+		* info->movespeed)] != '#' && hitboxy(info, (-1) * info->dirx, (-1) * info->diry))
 			info->posy -= info->diry * info->movespeed;
-		if (info->map[(int)(info->posx + info->dirx
-		* info->movespeed)][(int)(info->posy)] == 'X')
-			return (escape(info));
 	}
 	return (1);
 }

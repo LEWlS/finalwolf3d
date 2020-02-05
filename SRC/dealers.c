@@ -6,11 +6,19 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 15:51:41 by lbonnete          #+#    #+#             */
-/*   Updated: 2020/02/04 16:50:26 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/02/05 16:20:00 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INC/wolf3d.h"
+
+int		end(t_var *info)
+{
+	if (info->map[(int)(info->posx)][(int)(info->posy)] == 'X')
+		return(escape(info));
+	return (1);
+
+}
 
 int		escape(t_var *info)
 {
@@ -36,10 +44,10 @@ void	straff_and_rot2(t_var *info, t_input input)
 		input.straffer_y = info->dirx;
 		if (info->map[(int)(info->posx + input.straffer_x
 		* info->movespeed)][(int)(info->posy)] !=
-		'#' && hitboxx(info, input.straffer_x))
+		'#' && hitboxx(info, input.straffer_x, input.straffer_y))
 			info->posx += input.straffer_x * info->movespeed;
 		if (info->map[(int)(info->posx)][(int)(info->posy + input.straffer_y
-		* info->movespeed)] != '#' && hitboxy(info, input.straffer_y))
+		* info->movespeed)] != '#' && hitboxy(info, input.straffer_x, input.straffer_y))
 			info->posy += input.straffer_y * info->movespeed;
 	}
 }
@@ -56,10 +64,10 @@ void	straff_and_rot(t_var *info, t_input input)
 		input.straffer_y = -info->dirx;
 		if (info->map[(int)(info->posx + input.straffer_x
 		* info->movespeed)][(int)(info->posy)] !=
-		'#' && hitboxx(info, input.straffer_x))
+		'#' && hitboxx(info, input.straffer_x, input.straffer_y))
 			info->posx += input.straffer_x * info->movespeed;
 		if (info->map[(int)(info->posx)][(int)(info->posy + input.straffer_y
-		* info->movespeed)] != '#' && hitboxy(info, input.straffer_y))
+		* info->movespeed)] != '#' && hitboxy(info, input.straffer_x, input.straffer_y))
 			info->posy += input.straffer_y * info->movespeed;
 	}
 	straff_and_rot2(info, input);
@@ -98,5 +106,5 @@ int		dealer(t_var *info)
 	diag(info, input);
 	straff_and_rot(info, input);
 	move(info, input);
-	return (1);
+	return (end(info));
 }
