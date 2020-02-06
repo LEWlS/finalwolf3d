@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 16:39:35 by trabut            #+#    #+#             */
-/*   Updated: 2020/02/05 17:02:20 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/02/06 15:13:20 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,7 +180,7 @@ int		hitboxx(t_var *info, double dirx, double diry)
 		y = -0.2;
 		while (y < 0.2)
 		{
-			if (x * x + y * y  <= 0.1 * 0.1 && info->map[(int)(info->posx + x)][(int)(info->posy)] == '#')
+			if (x * x + y * y  <= 0.17 * 0.17 && info->map[(int)(info->posx + x)][(int)(info->posy)] == '#')
 			{
 				if(dirx >= 0 && x >= 0)
 					return (0);
@@ -208,7 +208,7 @@ int		hitboxy(t_var *info, double dirx, double diry)
 		y = -0.2;
 		while (y < 0.2)
 		{
-			if (x * x + y * y  <= 0.1 * 0.1 && info->map[(int)(info->posx)][(int)(info->posy + y)] == '#')
+			if (x * x + y * y  <= 0.17 * 0.17 && info->map[(int)(info->posx)][(int)(info->posy + y)] == '#')
 			{
 				printf("x : %f | y : %f\n", x, y);
 				if(diry >= 0 && y >= 0)
