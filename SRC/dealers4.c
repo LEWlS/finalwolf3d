@@ -6,13 +6,11 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 17:04:28 by lewis             #+#    #+#             */
-/*   Updated: 2020/02/05 16:11:52 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/03/05 15:20:44 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INC/wolf3d.h"
-
-
 
 void	move_diag(t_input *input)
 {
@@ -34,54 +32,23 @@ void	move_diag(t_input *input)
 		input->diag = 4;
 	}
 }
+
 void	diag(t_var *info, t_input input)
 {
 	if (input.diag == 1)
 	{
-		input.diag_x = info->dirx * (0.707) - info->diry * (-0.707);
-		input.diag_y = info->dirx * (-0.707) + info->diry * (0.707);
-		if (info->map[(int)(info->posx + input.diag_x
-		* info->movespeed)][(int)(info->posy)] !=
-		'#' && hitboxx(info, input.diag_x, input.diag_y))
-			info->posx += input.diag_x * info->movespeed;
-		if (info->map[(int)(info->posx)][(int)(info->posy + input.diag_y
-		* info->movespeed)] != '#' && hitboxy(info, input.diag_x, input.diag_y))
-			info->posy += input.diag_y * info->movespeed;
+		diag1(info, input);
 	}
 	if (input.diag == 2)
 	{
-		input.diag_x = info->dirx * (0.707) - info->diry * (0.707);
-		input.diag_y = info->dirx * (0.707) + info->diry * (0.707);
-		if (info->map[(int)(info->posx + input.diag_x
-		* info->movespeed)][(int)(info->posy)] !=
-		'#' && hitboxx(info, input.diag_x, input.diag_y))
-			info->posx += input.diag_x * info->movespeed;
-		if (info->map[(int)(info->posx)][(int)(info->posy + input.diag_y
-		* info->movespeed)] != '#' && hitboxy(info, input.diag_x, input.diag_y))
-			info->posy += input.diag_y * info->movespeed;
+		diag2(info, input);
 	}
 	if (input.diag == 3)
 	{
-		input.diag_x = info->dirx * (-0.707) - info->diry * (0.707);
-		input.diag_y = info->dirx * (0.707) + info->diry * (-0.707);
-		if (info->map[(int)(info->posx + input.diag_x
-		* info->movespeed)][(int)(info->posy)] !=
-		'#' && hitboxx(info, input.diag_x, input.diag_y))
-			info->posx += input.diag_x * info->movespeed;
-		if (info->map[(int)(info->posx)][(int)(info->posy + input.diag_y
-		* info->movespeed)] != '#' && hitboxy(info, input.diag_x, input.diag_y))
-			info->posy += input.diag_y * info->movespeed;
+		diag3(info, input);
 	}
 	if (input.diag == 4)
 	{
-		input.diag_x = info->dirx * (-0.707) - info->diry * (-0.707);
-		input.diag_y = info->dirx * (-0.707) + info->diry * (-0.707);
-		if (info->map[(int)(info->posx + input.diag_x
-		* info->movespeed)][(int)(info->posy)] !=
-		'#' && hitboxx(info, input.diag_x, input.diag_y))
-			info->posx += input.diag_x * info->movespeed;
-		if (info->map[(int)(info->posx)][(int)(info->posy + input.diag_y
-		* info->movespeed)] != '#' && hitboxy(info, input.diag_x, input.diag_y))
-			info->posy += input.diag_y * info->movespeed;
+		diag4(info, input);
 	}
 }

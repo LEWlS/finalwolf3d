@@ -6,15 +6,12 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 14:27:51 by lbonnete          #+#    #+#             */
-/*   Updated: 2020/02/05 16:09:18 by lbonnete         ###   ########.fr       */
+/*   Updated: 2020/03/05 15:22:35 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WOLF3D_H
 # define WOLF3D_H
-
-# include <stdio.h>
-
 # include <SDL.h>
 # include <SDL_image.h>
 # include <unistd.h>
@@ -182,11 +179,14 @@ void					get_move2(SDL_Event event, t_input *input);
 int						move(t_var *info, t_input input);
 void					reset_and_head(t_var *info, SDL_Event event);
 int						escape(t_var *info);
-int						hitboxx(t_var *info,double dirx, double diry);
-int						hitboxy(t_var *info,double dirx, double diry);
-int 					hitbox(t_var *info,double dirx, double diry);
+int						hitboxx(t_var *info, double dirx);
+int						hitboxy(t_var *info, double diry);
 void					free_surfaces(t_var *info);
 void					move_diag(t_input *input);
 void					diag(t_var *info, t_input input);
+void					diag1(t_var *info, t_input input);
+void					diag2(t_var *info, t_input input);
+void					diag3(t_var *info, t_input input);
+void					diag4(t_var *info, t_input input);
 
 #endif

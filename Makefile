@@ -6,7 +6,7 @@
 #    By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/18 15:34:09 by trabut            #+#    #+#              #
-#    Updated: 2020/02/04 15:35:29 by lbonnete         ###   ########.fr        #
+#    Updated: 2020/03/05 15:21:55 by lbonnete         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC =	main.c\
 		ft_multi.c\
 		blank.c\
 		sdl_use.c\
+		diag.c
 
 INC = wolf3d_define.h wolf3d_struc.h wolf3d.h
 OBJ	= $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRC))
